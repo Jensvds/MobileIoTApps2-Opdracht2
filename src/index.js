@@ -11,7 +11,9 @@ togglelockbtn.addEventListener('click', locktoggle);
 let synckbtn = document.getElementById('synctoggle');
 synckbtn.addEventListener('click', GetStatus);
 
-let address = "http://localhost:3000";
+//let address = "http://localhost";
+//let port = ":3000";
+let address = "https://kind-field-06a62d903.2.azurestaticapps.net/";
 let applicationServerPublicKey = "BC-Xk1P0MhZ6ls5SU8-6JI7I49iR0WmqoNt5_P7Dh1gNYLEJL5NmIg5LWUm92RghRCSJ9_wu_O4yRG34sLIpNFc";
 let isSubscribed = false;
 
@@ -81,7 +83,7 @@ function subscribeUser() {
   }))
     .then(function (subscription) {
       console.log('User is subscribed. subscription:' + JSON.stringify(subscription));
-      fetch(address + "/register", {
+      fetch(address + port + "/register", {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json'
@@ -196,7 +198,7 @@ async function GetStatus(){
 
 function sendPushNot(actionVar){
   console.log(JSON.stringify({'action': actionVar}));
-  fetch(address + "/push", {
+  fetch(address + port + "/push", {
     method: 'POST', // or 'PUT'
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({'action': actionVar}) // data can be `string` or {object}!
