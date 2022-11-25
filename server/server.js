@@ -3,7 +3,7 @@ const webPush = require('web-push')
 var cors = require('cors')
 const { json } = require('express')
 const app = express()
-const port = proc.env.port || 3000
+const port = process.env.PORT || 3000;
 let subscriptions = []
 
 app.use(express.static('dist'))
