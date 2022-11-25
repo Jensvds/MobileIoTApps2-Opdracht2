@@ -13,7 +13,7 @@ synckbtn.addEventListener('click', GetStatus);
 
 //let address = "http://localhost";
 let port = "";
-let address = "https://kind-field-06a62d903.2.azurestaticapps.net/";
+let address = "https://kind-field-06a62d903.2.azurestaticapps.net";
 let applicationServerPublicKey = "BC-Xk1P0MhZ6ls5SU8-6JI7I49iR0WmqoNt5_P7Dh1gNYLEJL5NmIg5LWUm92RghRCSJ9_wu_O4yRG34sLIpNFc";
 let isSubscribed = false;
 
@@ -131,11 +131,6 @@ navigator.serviceWorker.addEventListener('message', (event) => {
 });
 
 //window.setInterval(() => { navigator.serviceWorker.ready.then(worker => worker.active.postMessage("Hi from page")) }, 5000);
-
-function component() {
-  const element = document.createElement('div');
-  return div;
-}
 
 document.body.appendChild(component());
 
