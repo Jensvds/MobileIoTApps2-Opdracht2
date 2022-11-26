@@ -132,8 +132,6 @@ navigator.serviceWorker.addEventListener('message', (event) => {
 
 //window.setInterval(() => { navigator.serviceWorker.ready.then(worker => worker.active.postMessage("Hi from page")) }, 5000);
 
-document.body.appendChild(component());
-
 
 async function NukiLock(){
   await fetch('https://api.nuki.io/smartlock/645574324/action/lock', {
