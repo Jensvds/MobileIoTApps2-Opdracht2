@@ -6,10 +6,10 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 module.exports = [
   {
     name: 'server',
-    entry: './server/server.js',
+    entry: './server.js',
     target: 'node',
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "server"),
       filename: 'server.js',
     },
     mode: 'development',

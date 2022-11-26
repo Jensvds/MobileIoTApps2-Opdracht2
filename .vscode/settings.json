@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/dd1e1659-6ce8-40a2-8086-36679770b781/AppServices/subscriptions/dd1e1659-6ce8-40a2-8086-36679770b781/resourceGroups/MobileIoTApps2/providers/Microsoft.Web/sites/Nuki-Jensvds",
+    "appService.deploySubpath": "."
+}

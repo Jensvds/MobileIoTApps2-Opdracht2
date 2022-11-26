@@ -13,7 +13,7 @@ synckbtn.addEventListener('click', GetStatus);
 
 //let address = "http://localhost";
 let port = "";
-let address = "https://kind-field-06a62d903.2.azurestaticapps.net";
+let address = "https://nuki-jensvds.azurewebsites.net";
 let applicationServerPublicKey = "BC-Xk1P0MhZ6ls5SU8-6JI7I49iR0WmqoNt5_P7Dh1gNYLEJL5NmIg5LWUm92RghRCSJ9_wu_O4yRG34sLIpNFc";
 let isSubscribed = false;
 
@@ -217,7 +217,7 @@ function sendregularNot(data){
         navigator.serviceWorker.getRegistration().then(registration => {
             registration.showNotification(title, {
                 body: text,
-                icon: "images/icons/noticon.png",
+                icon: "noticon.png",
                 vibrate: [200, 100, 200]
             });
         });
