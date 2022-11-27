@@ -115,18 +115,6 @@ function locktoggle(){
   }
 }
 
-navigator.serviceWorker.addEventListener('message', (event) => {
-  console.log(event.data);
-  if (event.data == "locked"){
-    togglelockbtn.innerHTML = "lock";
-  }
-  else if (event.data == "unlocked"){
-    togglelockbtn.innerHTML = "lock_open";
-  }
-
-  sendregularNot(event.data);
-});
-
 async function NukiLock(){
   await fetch('https://api.nuki.io/smartlock/645574324/action/lock', {
     method: 'POST',
@@ -194,8 +182,19 @@ function sendPushNot(actionVar){
   //.catch(error => console.error('Error:', error));
 }
 
-function sendregularNot(data){
+navigator.serviceWorker.addEventListener('message', (event) => {
+  console.log(event.data);
+  if (event.data == "locked"){
+    togglelockbtn.innerHTML = "lock";
+  }
+  else if (event.data == "unlocked"){
+    togglelockbtn.innerHTML = "lock_open";
+  }
 
+  sendregularNot(event.data);
+});
+
+function sendregularNot(data){
   var title = "Lock: " + data;
   var text = "Error";
 

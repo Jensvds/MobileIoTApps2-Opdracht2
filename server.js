@@ -7,9 +7,7 @@ const port = process.env.PORT || 3000;
 let subscriptions = []
 
 app.use(express.static('dist'))
-
 app.use(express.json())
-
 app.use(cors())
 
 const vapidKeys = {
@@ -18,7 +16,7 @@ const vapidKeys = {
     privateKey: 'jzcnoTCEP_sXaotbywVHcNV0XKeD5l3VWrqACEFZy-U'
 };
 webPush.setVapidDetails(
-    'mailto:hans.naert@vives.be',
+    'mailto:jens.vanderstraeten@student.vives.be',
     vapidKeys.publicKey,
     vapidKeys.privateKey
 );
