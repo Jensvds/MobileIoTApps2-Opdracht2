@@ -11,11 +11,13 @@ togglelockbtn.addEventListener('click', locktoggle);
 let synckbtn = document.getElementById('synctoggle');
 synckbtn.addEventListener('click', GetStatus);
 
+let notificationsBtn = document.getElementById('notificationsBtn');
+notificationsBtn.addEventListener('click', requestNotifications);
+
 //let address = "http://localhost";
 let port = "";
 let address = "https://nuki-jensvds.azurewebsites.net";
 let applicationServerPublicKey = "BC-Xk1P0MhZ6ls5SU8-6JI7I49iR0WmqoNt5_P7Dh1gNYLEJL5NmIg5LWUm92RghRCSJ9_wu_O4yRG34sLIpNFc";
-let isSubscribed = false;
 
 GetStatus();
 
@@ -24,10 +26,6 @@ if ('serviceWorker' in navigator) {
 
   wb.register();
 }
-
-//add onclick for request notifications
-let notificationsBtn = document.getElementById('notificationsBtn');
-notificationsBtn.addEventListener('click', requestNotifications);
 
 function requestNotifications() {
   if(!("Notification" in window))
@@ -93,7 +91,6 @@ function subscribeUser() {
       }).then(res => res.text())
         .then(response => console.log('Success:', response))
         .catch(error => console.error('Error registering:', error));
-      isSubscribed = true;
     })
     .catch(function (err) {
       console.log('Failed to subscribe the user: ', err);
@@ -129,9 +126,6 @@ navigator.serviceWorker.addEventListener('message', (event) => {
 
   sendregularNot(event.data);
 });
-
-//window.setInterval(() => { navigator.serviceWorker.ready.then(worker => worker.active.postMessage("Hi from page")) }, 5000);
-
 
 async function NukiLock(){
   await fetch('https://api.nuki.io/smartlock/645574324/action/lock', {
